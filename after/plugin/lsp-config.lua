@@ -19,7 +19,7 @@ lspconfig.cssls.setup({
 lspconfig.tailwindcss.setup({})
 
 -- ts
-lspconfig.tsserver.setup({})
+lspconfig.ts_ls.setup({})
 
 -- htmx
 lspconfig.htmx.setup({
