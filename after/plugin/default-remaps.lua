@@ -26,17 +26,22 @@ vim.opt.number = true
 -- Insert mode remaps
 ---------------------
 
-vim.keymap.set('i', 'kj', '<esc>')
+vim.keymap.set("i", "kj", "<esc>")
 
 -- ------------------
 -- Command mode remaps
 -- ------------------
 
-vim.keymap.set('c', 'kj', '<esc>')
-vim.keymap.set('c', 'kj', '<esc>')
+vim.keymap.set("c", "kj", "<esc>")
+vim.keymap.set("c", "kj", "<esc>")
 
 -- ------------------------
 -- Prevent Signcolumn shift
 -- ------------------------
 
 vim.o.signcolumn = "yes"
+
+-- ------------------------
+-- Open current diretory 
+-- ------------------------
+vim.keymap.set("n", "<leader>d", ":e %:h<CR>")
