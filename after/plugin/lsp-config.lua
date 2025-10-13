@@ -1,33 +1,27 @@
 -- Setup language servers.
-local lspconfig = require("lspconfig")
-lspconfig.wgsl_analyzer.setup({})
-lspconfig.pyright.setup({})
+--local vim.lsp.config = vim.lsp.config("")
+--vim.lsp.config("wgsl_analyzer").enable()
+--vim.lsp.config("pyright").enable()
 
 -- html
 local html_capabilities = vim.lsp.protocol.make_client_capabilities()
 html_capabilities.textDocument.completion.completionItem.snippetSupport = true
-lspconfig.html.setup({
+vim.lsp.config("html", {
 	capabilities = html_capabilities,
 	filetypes = { "html", "templ", "htmldjango" },
 })
 -- css
-lspconfig.cssls.setup({
+vim.lsp.config("cssls", {
 	capabilities = html_capabilities,
 })
 
--- tailwindcss
-lspconfig.tailwindcss.setup({})
-
--- ts
-lspconfig.ts_ls.setup({})
-
 -- htmx
-lspconfig.htmx.setup({
+vim.lsp.config("htmx", {
 	filetypes = { "html", "templ", "htmldjango" },
 })
 
 -- lua
-lspconfig.lua_ls.setup({
+vim.lsp.config("lua_ls", {
 	settings = {
 		Lua = {
 			workspace = { checkThirdParty = false, library = vim.api.nvim_get_runtime_file("", true) },
@@ -40,12 +34,24 @@ lspconfig.lua_ls.setup({
 })
 
 -- rust
-lspconfig.rust_analyzer.setup({
-	-- Server-specific settings. See `:help lspconfig-setup`
+vim.lsp.config("rust_analyzer", {
+	-- Server-specific settings. See `:help vim.lsp.config-setup`
 	settings = {
 		["rust-analyzer"] = {},
 	},
 })
+
+--vim.lsp.enable({
+--	"wgsl_analyzer",
+--	"pyright",
+--	"html",
+--	"cssls",
+--	"tailwindcss",
+--	"ts_ls",
+--	"htmx",
+--	"lua_ls",
+--	"rust_analyzer",
+--})
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
