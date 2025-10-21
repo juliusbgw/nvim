@@ -45,3 +45,8 @@ vim.o.signcolumn = "yes"
 -- Open current diretory 
 -- ------------------------
 vim.keymap.set("n", "<leader>d", ":e %:h<CR>")
+
+-- ------------------------
+-- jq format data 
+-- ------------------------
+vim.keymap.set("n", "<leader>jq", ":%!jq .<CR>")
