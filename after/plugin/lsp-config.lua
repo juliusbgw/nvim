@@ -41,6 +41,34 @@ vim.lsp.config("rust_analyzer", {
 	},
 })
 
+-- vim.lsp.config("pyright", {
+-- 	settings = {
+-- 		mason = false,
+-- 		autostart = true,
+-- 		-- Dynamic root detection for buildout projects
+-- 		root_dir = function(fname)
+-- 			local util = require("lspconfig.util")
+-- 
+-- 			-- Always prioritize buildout.cfg with .vscode or .venv, even if further up
+-- 			local current_dir = vim.fn.fnamemodify(fname, ":p:h")
+-- 			while current_dir ~= "/" do
+-- 				local buildout_cfg = current_dir .. "/buildout.cfg"
+-- 				if vim.fn.filereadable(buildout_cfg) == 1 then
+-- 					local has_vscode = vim.fn.isdirectory(current_dir .. "/.vscode") == 1
+-- 					local has_venv = vim.fn.isdirectory(current_dir .. "/.venv") == 1
+-- 					if has_vscode or has_venv then
+-- 						return current_dir
+-- 					end
+-- 				end
+-- 				current_dir = vim.fn.fnamemodify(current_dir, ":h")
+-- 			end
+-- 
+-- 			-- Fallback to standard patterns
+-- 			return util.root_pattern("pyproject.toml", "setup.py", ".git")(fname)
+-- 		end,
+-- 	},
+-- })
+
 --vim.lsp.enable({
 --	"wgsl_analyzer",
 --	"pyright",
