@@ -8,7 +8,7 @@ local html_capabilities = vim.lsp.protocol.make_client_capabilities()
 html_capabilities.textDocument.completion.completionItem.snippetSupport = true
 vim.lsp.config("html", {
 	capabilities = html_capabilities,
-	filetypes = { "html", "templ", "htmldjango" },
+	filetypes = { "html", "templ", "htmldjango", "freemarker" },
 })
 -- css
 vim.lsp.config("cssls", {
@@ -25,7 +25,7 @@ vim.lsp.config("lua_ls", {
 	settings = {
 		Lua = {
 			workspace = { checkThirdParty = false, library = vim.api.nvim_get_runtime_file("", true) },
-			telemetry = { enable = false },
+			telemetry = { enable = true },
 			diagnostics = {
 				globals = { "vim" },
 			},
@@ -33,13 +33,7 @@ vim.lsp.config("lua_ls", {
 	},
 })
 
--- rust
-vim.lsp.config("rust_analyzer", {
-	-- Server-specific settings. See `:help vim.lsp.config-setup`
-	settings = {
-		["rust-analyzer"] = {},
-	},
-})
+-- rust: see after/lsp/rust_analyzer.lua
 
 -- vim.lsp.config("pyright", {
 -- 	settings = {
@@ -48,7 +42,7 @@ vim.lsp.config("rust_analyzer", {
 -- 		-- Dynamic root detection for buildout projects
 -- 		root_dir = function(fname)
 -- 			local util = require("lspconfig.util")
--- 
+--
 -- 			-- Always prioritize buildout.cfg with .vscode or .venv, even if further up
 -- 			local current_dir = vim.fn.fnamemodify(fname, ":p:h")
 -- 			while current_dir ~= "/" do
@@ -62,24 +56,24 @@ vim.lsp.config("rust_analyzer", {
 -- 				end
 -- 				current_dir = vim.fn.fnamemodify(current_dir, ":h")
 -- 			end
--- 
+--
 -- 			-- Fallback to standard patterns
 -- 			return util.root_pattern("pyproject.toml", "setup.py", ".git")(fname)
 -- 		end,
 -- 	},
 -- })
 
---vim.lsp.enable({
---	"wgsl_analyzer",
---	"pyright",
---	"html",
---	"cssls",
---	"tailwindcss",
---	"ts_ls",
---	"htmx",
---	"lua_ls",
---	"rust_analyzer",
---})
+-- vim.lsp.enable({
+-- 	"wgsl_analyzer",
+-- 	"pyright",
+-- 	"html",
+-- 	"cssls",
+-- 	"tailwindcss",
+-- 	"ts_ls",
+-- 	"htmx",
+-- 	"lua_ls",
+-- 	"rust_analyzer",
+-- })
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions

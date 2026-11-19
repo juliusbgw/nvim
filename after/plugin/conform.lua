@@ -1,13 +1,21 @@
 require("conform").setup({
+	formatters = {
+		prettierd_pt = {
+			command = "prettierd",
+			args = { "--parser", "html", "$FILENAME" },
+			stdin = true,
+		},
+	},
 	formatters_by_ft = {
 		lua = { "stylua" },
-		-- Conform will run multiple formatters sequentially
+		-- Conform will run multiple formatters seqtially
 		python = { "black" },
 		--python = { "isort", "black" },
 		-- You can customize some of the format options for the filetype (:help conform.format)
 		rust = { "rustfmt", lsp_format = "fallback" },
 		-- Conform will run the first available formatter
-		html = { "prettierd", "prettier", stop_after_first = true },
+		html = { "prettierd_pt" },
+		-- html = { "prettierd", "prettier", stop_after_first = true },
 		css = { "prettierd" },
 		scss = { "prettierd" },
 		htmldjango = { "prettierd" },
